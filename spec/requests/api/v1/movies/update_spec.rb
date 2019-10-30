@@ -11,7 +11,7 @@ RSpec.describe "a user" do
     patch "/api/v1/movies/Batman", params: changed_movie
     expect(response).to be_successful
     results = JSON.parse(response.body, symbolize_names: true)
-    # binding.pry
+
     expect(results[:length]).to eq(156)
   end
 
