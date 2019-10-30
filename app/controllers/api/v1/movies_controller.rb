@@ -10,4 +10,21 @@ class Api::V1::MoviesController < ApplicationController
     render json: movies
   end
 
+  def create
+    movie = Movie.new(movie_params)
+    if movie.save
+      render json: movie
+    else
+      render json: {status: "406",
+      body: {
+        "error": "Unable to create your movie."
+        }}
+      end
+  end
+
+private
+  def movie_params
+    params.permit(:title, :format, :release_year, :rating, :length)
+  end
+
 end
