@@ -25,12 +25,18 @@ e. Rating [integer; value between 1 and 5]
 6. Integrate a third-party web service relevant to the project.
 ## Endpoints
 ### Sessions
-request: delete("/api/v1/sessions/1")
+request:
+```ruby
+delete("/api/v1/sessions/1")
+```
 response:
 ```ruby
 results => {:message=>"Successfully logged out."}
 ```
-request: post("/api/v1/sessions?email=#{@user.email}&password=#{@user.password}")
+request:
+```ruby
+post("/api/v1sessions?email=#{@user.email}&password=#{@user.password}")
+```
 response:
 ```ruby
 results
@@ -38,6 +44,7 @@ results
 ```
 ### Users
 request:
+```ruby
     new_user = {
       name: "Jill Moss",
       email: "jill@gmail.com",
@@ -47,7 +54,7 @@ request:
       active: true
     }
     post "/api/v1/users", params: new_user
-
+```
 response:
 ```ruby
 results
@@ -70,7 +77,11 @@ response:
 results
 => {:id=>333, :title=>"Deadpool", :format=>"Streaming", :length=>168, :release_year=>2016, :rating=>4, :created_at=>"2019-10-30T02:10:54.142Z", :updated_at=>"2019-10-30T02:10:54.142Z"}
 ```
-request: get "/api/v1/movies"
+request:
+```ruby
+get "/api/v1/movies"
+```
+response:
 ```ruby
 results
 => [{"id"=>266, "title"=>"Batman", "format"=>"DVD", "length"=>150, "release_year"=>1997, "rating"=>5, "created_at"=>"2019-10-30T01:49:12.861Z", "updated_at"=>"2019-10-30T01:49:12.861Z"},
@@ -81,6 +92,7 @@ request:
 batman = Movie.create(title: "Batman", format: "DVD", length: 150, release_year: 1997, rating: 5)
 get "/api/v1/movies/Batman"
 ```
+response:
 ```ruby
 results => {"id": 223, "title": "Batman", "format": "DVD", "length": 150, "release_year": 1997, "rating": 5, "created_at": "2019-10-30T01:36:51.533Z", "updated_at": "2019-10-30T01:36:51.533Z"}
 ```
