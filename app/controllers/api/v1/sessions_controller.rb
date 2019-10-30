@@ -13,6 +13,11 @@ class Api::V1::SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    session.clear
+    render json: { message: "Successfully logged out."}, status: 200
+  end
+
 private
   def user_params
     params.permit(:email, :password)
