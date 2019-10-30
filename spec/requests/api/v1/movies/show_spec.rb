@@ -8,10 +8,10 @@ RSpec.describe "a user can see the details of a movie" do
     get "/api/v1/movies/Batman"
 
     expect(response).to be_successful
-    results = JSON.parse(response.body) #, symbolize_name: true
-    expect(results["format"]).to eq("DVD")
-    expect(results["length"]).to eq(150)
-    expect(results["release_year"]).to eq(1997)
-    expect(results["rating"]).to eq(5)
+    results = JSON.parse(response.body, symbolize_names: true)
+    expect(results[:format]).to eq("DVD")
+    expect(results[:length]).to eq(150)
+    expect(results[:release_year]).to eq(1997)
+    expect(results[:rating]).to eq(5)
   end
 end
