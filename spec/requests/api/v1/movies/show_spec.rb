@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "a user can see the details of a movie" do
-  before :each do
-  end
 
   it 'can see a specific movie' do
     batman = Movie.create(title: "Batman", format: "DVD", length: 150, release_year: 1997, rating: 5)
