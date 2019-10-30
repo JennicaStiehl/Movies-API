@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       get '/movies/:title', to: 'movies#show'
       resources :movies, only: [:index, :create]
       patch '/movies/:title', to: 'movies#update'
+
+      resources :users, only: [:create]
     end
   end
 end
