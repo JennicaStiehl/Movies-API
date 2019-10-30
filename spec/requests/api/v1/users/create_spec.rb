@@ -10,8 +10,8 @@ RSpec.describe "as a visitor", type: :request do
       active: true
     }
     post "/api/v1/users", params: new_user
-
     results = JSON.parse(response.body, symbolize_names: true)
+    
     expect(response.status).to eq(201)
     expect(results[:message]).to eq("Successfully created an account.")
   end

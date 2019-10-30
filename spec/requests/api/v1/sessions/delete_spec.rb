@@ -13,9 +13,8 @@ RSpec.describe "As a user who is logged on" do
       delete("/api/v1/sessions/1")
 
       expect(response.status).to eq(200)
-      body = JSON.parse(response.body, symbolize_names: true)
-      expect(body[:message]).to eq("Successfully logged out.")
-
+      results = JSON.parse(response.body, symbolize_names: true)
+      expect(results[:message]).to eq("Successfully logged out.")
     end
   end
 end
