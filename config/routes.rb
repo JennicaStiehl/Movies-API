@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       patch '/movies/:title', to: 'movies#update'
 
       resources :users, only: [:create]
+      resources :sessions, only: [:create]
     end
   end
 end
