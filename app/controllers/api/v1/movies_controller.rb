@@ -22,6 +22,18 @@ class Api::V1::MoviesController < ApplicationController
       end
   end
 
+  def update
+    movie = Movie.find_by_title(params["title"])
+    if movie
+      movie.update!(movie_params)
+      render json: movie
+    else
+      render json: {
+        "error": "Movie does not exist."
+      }
+    end
+  end
+
 private
   def movie_params
     params.permit(:title, :format, :release_year, :rating, :length)

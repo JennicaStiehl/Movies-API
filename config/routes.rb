@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/movies/:title', to: 'movies#show'
       resources :movies, only: [:index, :create]
+      patch '/movies/:title', to: 'movies#update'
     end
   end
 end
